@@ -1,0 +1,28 @@
+.data-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    margin: 5%;
+    gap: 16px;
+    padding: 1%;
+
+    border-radius: 8px;
+    background-color: #f7e9d7;
+    align-items: center;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.form-in{
+    display: flex;
+    flex-direction: column;
+}
+
+#save-btn{
+    max-width: 10%;
+}
