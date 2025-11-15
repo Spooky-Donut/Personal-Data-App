@@ -18,16 +18,20 @@ function Detalles({ persona, edit }: DetallesProps) {
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
 
-  const handleCrear = () => {
-    console.log("Crear persona");
+  const handleCrear = () => {};
+
+  const handleEditar = () => {};
+
+  const handleBorrar = () => {};
+
+  const handleNameInput = (e: React.FormEvent<HTMLInputElement>) => {
+    const input = e.currentTarget;
+    input.value = input.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúñÑ]/g, "");
   };
 
-  const handleEditar = () => {
-    console.log("Editar persona con ID:", persona?.id);
-  };
-
-  const handleBorrar = () => {
-    console.log("Borrar persona con ID:", persona?.id);
+  const handleNumberInput = (e: React.FormEvent<HTMLInputElement>) => {
+    const input = e.currentTarget;
+    input.value = input.value.replace(/[^0-9]/g, "");
   };
 
   useEffect(() => {
@@ -55,6 +59,8 @@ function Detalles({ persona, edit }: DetallesProps) {
             <input
               type="text"
               name="fname"
+              maxLength={30}
+              onInput={handleNameInput}
               value={fname}
               readOnly={!edit}
               onChange={(e) => setFname(e.target.value)}
@@ -65,6 +71,8 @@ function Detalles({ persona, edit }: DetallesProps) {
             <input
               type="text"
               name="mname"
+              maxLength={30}
+              onInput={handleNameInput}
               value={mname}
               readOnly={!edit}
               onChange={(e) => setMname(e.target.value)}
@@ -75,6 +83,8 @@ function Detalles({ persona, edit }: DetallesProps) {
             <input
               type="text"
               name="lname"
+              maxLength={60}
+              onInput={handleNameInput}
               value={lname}
               readOnly={!edit}
               onChange={(e) => setLname(e.target.value)}
@@ -101,6 +111,10 @@ function Detalles({ persona, edit }: DetallesProps) {
             <input
               type="text"
               name="id"
+              minLength={10}
+              maxLength={10}
+              onInput={handleNumberInput}
+              inputMode="numeric"
               value={id}
               readOnly={!edit}
               onChange={(e) => setId(e.target.value)}
@@ -153,6 +167,10 @@ function Detalles({ persona, edit }: DetallesProps) {
             <input
               type="text"
               name="phone"
+              minLength={10}
+              maxLength={10}
+              onInput={handleNumberInput}
+              inputMode="numeric"
               value={phone}
               readOnly={!edit}
               onChange={(e) => setPhone(e.target.value)}

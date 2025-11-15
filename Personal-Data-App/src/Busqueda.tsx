@@ -11,9 +11,14 @@ function Busqueda({ onBuscar }: BusquedaProps) {
     setId(valor === "" ? "" : Number(valor));
   };
 
+  const handleNumberInput = (e: React.FormEvent<HTMLInputElement>) => {
+    const input = e.currentTarget;
+    input.value = input.value.replace(/[^0-9]/g, "");
+  };
+
   const handleBuscar = () => {
     if (id === "" || isNaN(Number(id))) {
-      alert("Por favor ingresa un valor válido");
+      alert("No se pudo encontrar. Intente nuevamente.");
       return;
     }
     onBuscar(Number(id));
@@ -25,6 +30,9 @@ function Busqueda({ onBuscar }: BusquedaProps) {
         className="browser"
         type="text"
         name="search"
+        minLength={10}
+        maxLength={10}
+        onInput={handleNumberInput}
         placeholder="Buscar por identificación"
         onChange={onChange}
       />
