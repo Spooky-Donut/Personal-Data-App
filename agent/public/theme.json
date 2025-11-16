@@ -1,0 +1,15 @@
+{
+  "custom_fonts": [
+    "Montserrat"
+  ],
+  "variables": {
+    "light": {
+      "--font-sans": "Montserrat, sans-serif",
+      "--font-mono": "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace"
+    },
+    "dark": {
+      "--font-sans": "Montserrat, sans-serif",
+      "--font-mono": "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace"
+    }
+  }
+}

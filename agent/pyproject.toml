@@ -1,0 +1,14 @@
+[project]
+name = "software-design-ii-final"
+version = "0.1.0"
+description = "final proyect for software design II"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.30.0",
+    "chainlit==2.8.3",
+    "langchain>=1.0.2",
+    "langchain-community>=0.4",
+    "langchain-openai>=1.0.1",
+    "psycopg2>=2.9.11",
+]
