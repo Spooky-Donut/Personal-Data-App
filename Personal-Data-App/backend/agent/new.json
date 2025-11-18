@@ -1,0 +1,37 @@
+{
+  "content": "¡Hola! ¿En qué puedo ayudarte hoy?\n\nPuedo:\n- Buscar usuarios en la base de datos (veo una tabla llamada \"users\"),\n- Buscar por nombre, usuario o email,\n- Ejecutar otras consultas SQL si lo deseas.\n\nDime qué quieres hacer.",
+  "additional_kwargs": { "refusal": null },
+  "response_metadata": {
+    "token_usage": {
+      "completion_tokens": 192,
+      "prompt_tokens": 859,
+      "total_tokens": 1051,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 128,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": { "audio_tokens": 0, "cached_tokens": 0 }
+    },
+    "model_provider": "openai",
+    "model_name": "gpt-5-mini-2025-08-07",
+    "system_fingerprint": null,
+    "id": "chatcmpl-CXepSJKzv1zZbqpTqo3qRdECiMJ3f",
+    "service_tier": "default",
+    "finish_reason": "stop",
+    "logprobs": null
+  },
+  "type": "ai",
+  "name": null,
+  "id": "lc_run--86dcf295-075a-4b20-8673-a6a89c0913c3-0",
+  "tool_calls": [],
+  "invalid_tool_calls": [],
+  "usage_metadata": {
+    "input_tokens": 859,
+    "output_tokens": 192,
+    "total_tokens": 1051,
+    "input_token_details": { "audio": 0, "cache_read": 0 },
+    "output_token_details": { "audio": 0, "reasoning": 128 }
+  }
+}
