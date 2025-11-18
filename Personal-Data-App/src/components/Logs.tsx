@@ -1,8 +1,8 @@
-import "./styles/Consulta.css";
-import Back from "./BackButton.tsx";
+import "../styles/Consulta.css";
+import Back from "../utils/BackButton.tsx";
 import { useState } from "react";
-import Busqueda from "./Busqueda.tsx";
-import DetalleLog from "./DetalleLog.tsx";
+import Busqueda from "../utils/Busqueda.tsx";
+import DetalleLog from "../utils/DetalleLog.tsx";
 
 function Logs() {
   const logs = [

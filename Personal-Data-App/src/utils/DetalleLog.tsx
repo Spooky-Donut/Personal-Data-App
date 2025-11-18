@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { LogType } from "./LogType.tsx";
+import type { LogType } from "../types/LogType.tsx";
 
 interface DetallesProps {
   logg?: LogType;

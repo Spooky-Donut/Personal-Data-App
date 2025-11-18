@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./styles/Detalles.css";
-import type { Persona } from "./Persona.tsx";
+import "../styles/Detalles.css";
+import type { Persona } from "../types/Persona.tsx";
 
 interface DetallesProps {
   persona?: Persona;
@@ -17,6 +17,7 @@ function Detalles({ persona, edit }: DetallesProps) {
   const [gender, setGender] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
+  const [photo, setPhoto] = useState<string>("");
 
   const handleCrear = () => {};
 

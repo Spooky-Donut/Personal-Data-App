@@ -1,10 +1,11 @@
+import "../styles/Consulta.css";
+import Back from "../utils/BackButton.tsx";
 import { useState } from "react";
-import Busqueda from "./Busqueda.tsx";
-import Detalles from "./Detalles.tsx";
-import Back from "./BackButton.tsx";
+import Busqueda from "../utils/Busqueda.tsx";
+import Detalles from "../utils/Detalles.tsx";
 
-function Editar() {
-  const personasSimuladas = [
+function Consulta() {
+  const records = [
     {
       id_type: "cc",
       id: 1000000000,
@@ -15,6 +16,7 @@ function Editar() {
       gender: "m",
       email: "juan@example.com",
       phone: 123,
+      foto: "https://example.com/fotos/Juan-Pérez.jpg",
     },
     {
       id_type: "cc",
@@ -26,6 +28,7 @@ function Editar() {
       gender: "f",
       email: "ana@example.com",
       phone: 111,
+      foto: "https://example.com/fotos/Ana-López.jpg",
     },
     {
       id_type: "ti",
@@ -37,6 +40,7 @@ function Editar() {
       gender: "m",
       email: "pedro@example.com",
       phone: 102,
+      foto: "https://example.com/fotos/Pedro-Daniel-Gómez.jpg",
     },
     {
       id_type: "cc",
@@ -48,6 +52,7 @@ function Editar() {
       gender: "f",
       email: "laura.martinez@example.com",
       phone: 555111222,
+      foto: "https://example.com/fotos/Laura-Isabel-Martínez.jpg",
     },
     {
       id_type: "cc",
@@ -59,6 +64,7 @@ function Editar() {
       gender: "m",
       email: "carlos.ramirez@example.com",
       phone: 555333444,
+      foto: "https://example.com/fotos/Carlos-Andrés-Ramírez.jpg",
     },
     {
       id_type: "cc",
@@ -70,6 +76,7 @@ function Editar() {
       gender: "f",
       email: "maria.torres@example.com",
       phone: 555555666,
+      foto: "https://example.com/fotos/María-Camila-Torres.jpg",
     },
     {
       id_type: "cc",
@@ -81,6 +88,7 @@ function Editar() {
       gender: "m",
       email: "andres.garcia@example.com",
       phone: 555777888,
+      foto: "https://example.com/fotos/Andrés-Felipe-García.jpg",
     },
     {
       id_type: "ti",
@@ -92,6 +100,7 @@ function Editar() {
       gender: "f",
       email: "valentina.rodriguez@example.com",
       phone: 555999000,
+      foto: "https://example.com/fotos/Valentina-Rodríguez.jpg",
     },
     {
       id_type: "cc",
@@ -103,6 +112,7 @@ function Editar() {
       gender: "m",
       email: "julian.hernandez@example.com",
       phone: 555222333,
+      foto: "https://example.com/fotos/Julián-David-Hernández.jpg",
     },
     {
       id_type: "cc",
@@ -114,6 +124,7 @@ function Editar() {
       gender: "f",
       email: "paula.moreno@example.com",
       phone: 555444555,
+      foto: "https://example.com/fotos/Paula-Andrea-Moreno.jpg",
     },
     {
       id_type: "cc",
@@ -125,6 +136,7 @@ function Editar() {
       gender: "m",
       email: "santiago.suarez@example.com",
       phone: 555666777,
+      foto: "https://example.com/fotos/Santiago-Suárez.jpg",
     },
     {
       id_type: "ti",
@@ -136,6 +148,7 @@ function Editar() {
       gender: "m",
       email: "nicolas.castro@example.com",
       phone: 555888999,
+      foto: "https://example.com/fotos/Nicolás-Alejandro-Castro.jpg",
     },
     {
       id_type: "cc",
@@ -147,6 +160,7 @@ function Editar() {
       gender: "f",
       email: "daniela.jimenez@example.com",
       phone: 555000111,
+      foto: "https://example.com/fotos/Daniela-Sofía-Jiménez.jpg",
     },
     {
       id_type: "cc",
@@ -158,6 +172,7 @@ function Editar() {
       gender: "m",
       email: "camilo.vargas@example.com",
       phone: 555111333,
+      foto: "https://example.com/fotos/Camilo-José-Vargas.jpg",
     },
     {
       id_type: "cc",
@@ -169,6 +184,7 @@ function Editar() {
       gender: "f",
       email: "tatiana.ortiz@example.com",
       phone: 555222444,
+      foto: "https://example.com/fotos/Tatiana-Lucía-Ortiz.jpg",
     },
     {
       id_type: "ti",
@@ -180,6 +196,7 @@ function Editar() {
       gender: "m",
       email: "miguel.ruiz@example.com",
       phone: 555333555,
+      foto: "https://example.com/fotos/Miguel-Ángel-Ruiz.jpg",
     },
     {
       id_type: "cc",
@@ -191,6 +208,7 @@ function Editar() {
       gender: "f",
       email: "sara.cortes@example.com",
       phone: 555444666,
+      foto: "https://example.com/fotos/Sara-Elena-Cortés.jpg",
     },
     {
       id_type: "ti",
@@ -202,13 +220,16 @@ function Editar() {
       gender: "m",
       email: "david.rios@example.com",
       phone: 555555777,
+      foto: "https://example.com/fotos/David-Esteban-Ríos.jpg",
     },
   ];
+
+  const [showTable, setShowTable] = useState(false);
 
   const [persona, setPersona] = useState<any | null>(null);
 
   const handleBusqueda = (id: number) => {
-    const encontrada = personasSimuladas.find((p) => p.id === id);
+    const encontrada = records.find((p) => p.id === id);
     if (encontrada) {
       setPersona(encontrada);
     } else {
@@ -217,15 +238,51 @@ function Editar() {
   };
 
   return (
-    <div>
+    <div className="body">
       <Back />
+      <h1 className="tittle">Personas Registradas</h1>
       {!persona ? (
-        <Busqueda onBuscar={handleBusqueda} />
+        <div>
+          <Busqueda onBuscar={handleBusqueda} />
+          <button onClick={() => setShowTable(true)}>Listar personas</button>
+          {showTable && (
+            <div className="table-container">
+              <table className="records-table">
+                <thead>
+                  <tr>
+                    <th>Identificación</th>
+                    <th>Nombre completo</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Género</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {records.map((r) => (
+                    <tr key={r.id}>
+                      <td>
+                        {r.id_type} {r.id}
+                      </td>
+                      <td>
+                        {r.first_name} {r.middle_name} {r.last_name}
+                      </td>
+                      <td>{r.birthdate.toLocaleDateString("es-CO")}</td>
+                      <td>{r.gender}</td>
+                      <td>{r.email}</td>
+                      <td>{r.phone}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       ) : (
-        <Detalles persona={persona} edit={true} />
+        <Detalles persona={persona} edit={false} />
       )}
     </div>
   );
 }
 
-export default Editar;
+export default Consulta;

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Busqueda from "./Busqueda.tsx";
-import Detalles from "./Detalles.tsx";
-import Back from "./BackButton.tsx";
+import Busqueda from "../utils/Busqueda.tsx";
+import Detalles from "../utils/Detalles.tsx";
+import Back from "../utils/BackButton.tsx";
 
 function Borrar() {
   const personasSimuladas = [
@@ -15,6 +15,7 @@ function Borrar() {
       gender: "m",
       email: "juan@example.com",
       phone: 123,
+      foto: "https://example.com/fotos/Juan-Pérez.jpg",
     },
     {
       id_type: "cc",
@@ -26,6 +27,7 @@ function Borrar() {
       gender: "f",
       email: "ana@example.com",
       phone: 111,
+      foto: "https://example.com/fotos/Ana-López.jpg",
     },
     {
       id_type: "ti",
@@ -37,6 +39,7 @@ function Borrar() {
       gender: "m",
       email: "pedro@example.com",
       phone: 102,
+      foto: "https://example.com/fotos/Pedro-Daniel-Gómez.jpg",
     },
     {
       id_type: "cc",
@@ -48,6 +51,7 @@ function Borrar() {
       gender: "f",
       email: "laura.martinez@example.com",
       phone: 555111222,
+      foto: "https://example.com/fotos/Laura-Isabel-Martínez.jpg",
     },
     {
       id_type: "cc",
@@ -59,6 +63,7 @@ function Borrar() {
       gender: "m",
       email: "carlos.ramirez@example.com",
       phone: 555333444,
+      foto: "https://example.com/fotos/Carlos-Andrés-Ramírez.jpg",
     },
     {
       id_type: "cc",
@@ -70,6 +75,7 @@ function Borrar() {
       gender: "f",
       email: "maria.torres@example.com",
       phone: 555555666,
+      foto: "https://example.com/fotos/María-Camila-Torres.jpg",
     },
     {
       id_type: "cc",
@@ -81,6 +87,7 @@ function Borrar() {
       gender: "m",
       email: "andres.garcia@example.com",
       phone: 555777888,
+      foto: "https://example.com/fotos/Andrés-Felipe-García.jpg",
     },
     {
       id_type: "ti",
@@ -92,6 +99,7 @@ function Borrar() {
       gender: "f",
       email: "valentina.rodriguez@example.com",
       phone: 555999000,
+      foto: "https://example.com/fotos/Valentina-Rodríguez.jpg",
     },
     {
       id_type: "cc",
@@ -103,6 +111,7 @@ function Borrar() {
       gender: "m",
       email: "julian.hernandez@example.com",
       phone: 555222333,
+      foto: "https://example.com/fotos/Julián-David-Hernández.jpg",
     },
     {
       id_type: "cc",
@@ -114,6 +123,7 @@ function Borrar() {
       gender: "f",
       email: "paula.moreno@example.com",
       phone: 555444555,
+      foto: "https://example.com/fotos/Paula-Andrea-Moreno.jpg",
     },
     {
       id_type: "cc",
@@ -125,6 +135,7 @@ function Borrar() {
       gender: "m",
       email: "santiago.suarez@example.com",
       phone: 555666777,
+      foto: "https://example.com/fotos/Santiago-Suárez.jpg",
     },
     {
       id_type: "ti",
@@ -136,6 +147,7 @@ function Borrar() {
       gender: "m",
       email: "nicolas.castro@example.com",
       phone: 555888999,
+      foto: "https://example.com/fotos/Nicolás-Alejandro-Castro.jpg",
     },
     {
       id_type: "cc",
@@ -147,6 +159,7 @@ function Borrar() {
       gender: "f",
       email: "daniela.jimenez@example.com",
       phone: 555000111,
+      foto: "https://example.com/fotos/Daniela-Sofía-Jiménez.jpg",
     },
     {
       id_type: "cc",
@@ -158,6 +171,7 @@ function Borrar() {
       gender: "m",
       email: "camilo.vargas@example.com",
       phone: 555111333,
+      foto: "https://example.com/fotos/Camilo-José-Vargas.jpg",
     },
     {
       id_type: "cc",
@@ -169,6 +183,7 @@ function Borrar() {
       gender: "f",
       email: "tatiana.ortiz@example.com",
       phone: 555222444,
+      foto: "https://example.com/fotos/Tatiana-Lucía-Ortiz.jpg",
     },
     {
       id_type: "ti",
@@ -180,6 +195,7 @@ function Borrar() {
       gender: "m",
       email: "miguel.ruiz@example.com",
       phone: 555333555,
+      foto: "https://example.com/fotos/Miguel-Ángel-Ruiz.jpg",
     },
     {
       id_type: "cc",
@@ -191,6 +207,7 @@ function Borrar() {
       gender: "f",
       email: "sara.cortes@example.com",
       phone: 555444666,
+      foto: "https://example.com/fotos/Sara-Elena-Cortés.jpg",
     },
     {
       id_type: "ti",
@@ -202,6 +219,7 @@ function Borrar() {
       gender: "m",
       email: "david.rios@example.com",
       phone: 555555777,
+      foto: "https://example.com/fotos/David-Esteban-Ríos.jpg",
     },
   ];
 

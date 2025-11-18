@@ -8,6 +8,7 @@ interface Persona {
   gender: string;
   email: string;
   phone: number;
+  foto: string;
 }
 
 export type { Persona };

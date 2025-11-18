@@ -3,11 +3,12 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles/index.css";
 import App from "./App.tsx";
-import Crear from "./Crear.tsx";
-import Consulta from "./Consulta.tsx";
-import Editar from "./Editar.tsx";
-import Borrar from "./Borrar.tsx";
-import Logs from "./Logs.tsx";
+import Crear from "./components/Crear.tsx";
+import Consulta from "./components/Consulta.tsx";
+import Editar from "./components/Editar.tsx";
+import Borrar from "./components/Borrar.tsx";
+import Logs from "./components/Logs.tsx";
+import Image from "./components/Image.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/logs",
     element: <Logs />,
+  },
+  {
+    path: "/image",
+    element: <Image />,
   },
 ]);
 
