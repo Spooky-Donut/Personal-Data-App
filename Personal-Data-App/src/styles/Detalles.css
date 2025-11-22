@@ -1,28 +1,79 @@
-.data-form{
+/* Contenedor general del formulario */
+.data-form {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 
     margin: 5%;
-    gap: 16px;
-    padding: 1%;
+    padding: 2.5%;
+    gap: 20px;
 
-    border-radius: 8px;
-    background-color: #f7e9d7;
+    border-radius: 16px;
+    background-color: #A9B5DF; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+
     align-items: center;
 }
 
-.form-group{
+/* Grupos de campos */
+.form-group {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.form-in{
+/* Contenedor individual del input */
+.form-in {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
-#save-btn{
-    max-width: 10%;
+/* Inputs y selects */
+.form-in input,
+.form-in select {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 2px solid #3F5DE3; 
+    font-size: 1rem;
+    color: #1C246E;
+    background-color: white;
+    outline: none;
+    transition: 0.25s;
+}
+
+.form-in input:focus,
+.form-in select:focus {
+    border-color: #1C246E;
+    box-shadow: 0 0 6px rgba(31, 36, 110, 0.4);
+}
+
+/* Botón guardar */
+#save-btn {
+    max-width: 200px;
+    padding: 12px 20px;
+
+    background-color: #3F5DE3; 
+
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.25s;
+    margin-top: 12px;
+}
+
+#save-btn:hover {
+    background-color: #1C246E; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+#save-btn:active {
+    transform: translateY(0);
+    background-color: #A9B5DF; 
 }

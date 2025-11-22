@@ -1,0 +1,59 @@
+/* Contenedor de la pantalla principal */
+.home-page {
+  min-height: 80vh;            
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;      
+  text-align: center;
+}
+
+/* Título y subtítulo */
+.home-title {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #1c246e;               
+  margin-bottom: 8px;
+}
+
+.home-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 28px;
+}
+
+/* Contenedor de los “botones” */
+.home-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Links con cara de botón */
+.home-links a {
+  text-decoration: none;
+  background-color: #3f5de3;    
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover más oscuro */
+.home-links a:hover {
+  background-color: #1c246e;    
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Clic */
+.home-links a:active {
+  transform: translateY(0);
+  background-color: #a9b5df;    
+}
