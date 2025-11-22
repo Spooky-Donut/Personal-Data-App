@@ -262,13 +262,20 @@ function Consulta() {
                   {records.map((r) => (
                     <tr key={r.id}>
                       <td>
-                        {r.id_type} {r.id}
+                        {r.id_type.toUpperCase()} {r.id}
                       </td>
                       <td>
                         {r.first_name} {r.middle_name} {r.last_name}
                       </td>
                       <td>{r.birthdate.toLocaleDateString("es-CO")}</td>
-                      <td>{r.gender}</td>
+                      <td>
+                        {{
+                          m: "Masculino",
+                          f: "Femenino",
+                          nb: "No binario",
+                          na: "Prefiero no responder",
+                        }[r.gender] ?? "Desconocido"}
+                      </td>
                       <td>{r.email}</td>
                       <td>{r.phone}</td>
                     </tr>

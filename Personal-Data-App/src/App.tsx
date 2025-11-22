@@ -11,7 +11,6 @@ function App() {
       <Link to={"/editar"}>Editar</Link>
       <Link to={"/borrar"}>Borrar</Link>
       <Link to={"/logs"}>Logs</Link>
-      <Link to={"/image"}>Image Upload</Link>
     </>
   );
 }

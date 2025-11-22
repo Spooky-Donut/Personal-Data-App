@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { ChangeEvent } from "react";
 import "../styles/Detalles.css";
 import type { Persona } from "../types/Persona.tsx";
 
@@ -19,7 +20,64 @@ function Detalles({ persona, edit }: DetallesProps) {
   const [phone, setPhone] = useState<string>("");
   const [photo, setPhoto] = useState<string>("");
 
-  const handleCrear = () => {};
+  const handleUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.files) return;
+    const file = event.target.files[0];
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "pdate_upload");
+    data.append("cloud_name", "dwlegrpg5");
+
+    const res = await fetch(
+      " https://api.cloudinary.com/v1_1/dwlegrpg5/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    const uploadedImage = await res.json();
+    setPhoto(uploadedImage.secure_url);
+  };
+
+  const handleCrear = async () => {
+    try {
+      const body = {
+        id_persona: id,
+        primer_nombre: fname,
+        segundo_nombre: mname || null,
+        apellidos: lname,
+        fecha_nacimiento: date,
+        genero: gender,
+        correo: email,
+        celular: phone,
+        tipo_documento: typeId,
+        foto: photo,
+      };
+
+      const response = await fetch("http://localhost:5000/api/usuarios", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error al crear persona:", errorData);
+        alert("Error al crear persona");
+        return;
+      }
+
+      const data = await response.json();
+      console.log("Persona creada:", data);
+      alert("Persona creada exitosamente");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error inesperado al crear persona");
+    }
+  };
 
   const handleEditar = () => {};
 
@@ -49,11 +107,23 @@ function Detalles({ persona, edit }: DetallesProps) {
     setGender(persona?.gender ?? "");
     setEmail(persona?.email ?? "");
     setPhone(persona ? persona.phone.toString() : "");
+    setPhoto(persona?.foto ?? "");
   }, [persona]);
 
   return (
     <>
       <form className="data-form">
+        <div className="form-group">
+          <img src={photo} alt="Foto" />
+          <label htmlFor="photo">Foto</label>
+          <input
+            type="file"
+            name="photo"
+            accept="image/*"
+            disabled={!edit}
+            onChange={handleUpload}
+          />
+        </div>
         <div className="form-group">
           <div className="form-in">
             <label htmlFor="fname">Primer nombre</label>

@@ -8,7 +8,6 @@ import Consulta from "./components/Consulta.tsx";
 import Editar from "./components/Editar.tsx";
 import Borrar from "./components/Borrar.tsx";
 import Logs from "./components/Logs.tsx";
-import Image from "./components/Image.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
   {
     path: "/logs",
     element: <Logs />,
-  },
-  {
-    path: "/image",
-    element: <Image />,
   },
 ]);
 
